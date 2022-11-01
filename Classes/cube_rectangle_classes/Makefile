@@ -1,6 +1,6 @@
-all: rectangle_time
+all: cube_time
 
-rectangle_time: main.o rectangle_impl.o
+cube_time: main.o rectangle_impl.o cube_impl.o
 	g++ $^ -o $@
 	#$^ == main.o rectangle_impl.o
 	#$@ == rectangle_time
@@ -15,5 +15,10 @@ rectangle_impl.o: rectangle_impl.cpp rectangle.hpp
 	#$< == rectangle_impl.o
 	#$@ == rectangle_impl.o
 
+cubee_impl.o: cubee_impl.cpp cube.hpp
+	g++ -c $< -o $@
+	#$< == cube_impl.o
+	#$@ == cubee_impl.o
+
 clean:
-	-rm *.o rectangle_time
+	-rm *.o cube_time
